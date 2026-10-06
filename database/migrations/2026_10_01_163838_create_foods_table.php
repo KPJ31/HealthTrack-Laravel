@@ -13,6 +13,15 @@ return new class extends Migration
     {
         Schema::create('foods', function (Blueprint $table) {
             $table->id();
+
+            $table->string('name');
+            $table->text('description');
+            $table->integer('calories_per_100g');
+            $table->decimal('protein');
+            $table->decimal('carbohydrates');
+            $table->decimal('fat');
+            $table->boolean('is_active')->default(true);
+
             $table->timestamps();
         });
     }

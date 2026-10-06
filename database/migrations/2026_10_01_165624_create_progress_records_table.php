@@ -13,6 +13,15 @@ return new class extends Migration
     {
         Schema::create('progress_records', function (Blueprint $table) {
             $table->id();
+
+            $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
+
+            $table->enum('record_type', ['workout', 'diet', 'metric', 'goal']);
+            $table->string('title');
+            $table->text('description');
+            $table->date('record_date');
+            $table->string('value');
+
             $table->timestamps();
         });
     }

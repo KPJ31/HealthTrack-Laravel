@@ -13,6 +13,13 @@ return new class extends Migration
     {
         Schema::create('reports', function (Blueprint $table) {
             $table->id();
+
+            $table->foreignId('generate_by')->constrained('users')->onDelete('cascade');
+
+            $table->enum('report_type', ['clinet_progress', 'workout_summary', 'diet_summary', 'health_metrics', 'system']);
+            $table->text('parameters');
+            $table->string('file_path');
+
             $table->timestamps();
         });
     }

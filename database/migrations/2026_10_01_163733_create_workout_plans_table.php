@@ -13,6 +13,16 @@ return new class extends Migration
     {
         Schema::create('workout_plans', function (Blueprint $table) {
             $table->id();
+
+            $table->foreignId('trainer_id')->constrained('users')->onDelete('cascade');
+
+            $table->string('name');
+            $table->text('description');
+            $table->string('goal');
+            $table->enum('difficulty', ['beginner', 'intermediate', 'advanced']);
+            $table->integer('duration_week');
+            $table->boolean('is_active')->default(true);
+
             $table->timestamps();
         });
     }

@@ -13,6 +13,14 @@ return new class extends Migration
     {
         Schema::create('exercises', function (Blueprint $table) {
             $table->id();
+
+            $table->string('name');
+            $table->text('description');
+            $table->string('muscle_group');
+            $table->string('equipment');
+            $table->string('video_url');
+            $table->boolean('is_active')->default(true);
+
             $table->timestamps();
         });
     }

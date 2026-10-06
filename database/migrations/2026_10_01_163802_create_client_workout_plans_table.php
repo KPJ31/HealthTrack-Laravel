@@ -13,6 +13,15 @@ return new class extends Migration
     {
         Schema::create('client_workout_plans', function (Blueprint $table) {
             $table->id();
+
+            $table->foreignId('client_id')->constrained('users')->onDelete('cascade');
+            $table->foreignId('workout_plan_id')->constrained('workout_plans')->onDelete('cascade');
+
+            $table->date('start_date');
+            $table->date('end_date');
+            $table->integer('progress');
+            $table->enum('status', ['active', 'completed', 'paused']);
+
             $table->timestamps();
         });
     }
