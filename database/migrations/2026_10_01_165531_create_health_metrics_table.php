@@ -20,7 +20,7 @@ return new class extends Migration
             $table->decimal('value');
             $table->string('unit');
             $table->date('recorded_at');
-            $table->text('note');
+            $table->text('notes');
 
             $table->timestamps();
         });

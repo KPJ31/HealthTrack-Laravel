@@ -19,7 +19,7 @@ return new class extends Migration
 
             $table->date('appointment_date');
             $table->enum('status', ['scheduled', 'completed', 'cancelled']);
-            $table->text('note');
+            $table->text('notes');
 
             $table->timestamps();
         });
